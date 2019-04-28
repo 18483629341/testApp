@@ -9,18 +9,22 @@
 
 <ion-content>
   <div class="list">
-    <div *ngFor="let obj of list,let i = index">
+    <div *ngFor="let obj of list;let i = index">
       <ion-list-header>
         <ion-label>
-          <span class="circle"></span> 潮河水质状况 </ion-label>
+          <span class="circle"></span>
+          <span class='list-title'>{{obj.RLNAME}}水质状况</span>
+        </ion-label>
       </ion-list-header>
-      <p class="list-header">
-        <span class='title'>{{obj.RLNAME}}</span>
-        <span [ngClass]='{"one-level":obj.RL_WATER_TYPE==="1","two-level":obj.RL_WATER_TYPE==="2",
-            "three-level":obj.RL_WATER_TYPE==="3","four-level":obj.RL_WATER_TYPE==="4",
-            "five-level":obj.RL_WATER_TYPE==="5","six-level":obj.RL_WATER_TYPE==="6"}' class="level-span">{{obj.RL_WATER_TYPE_JB}}</span>
-        <span class="time">{{obj.MTIME}}</span>
-      </p>
+
+      <div class="card-li" *ngFor='let item of obj.poi'>
+        <p class="list-header">
+          <span class='title'>{{item.WQ_AM_PI_NAME}}</span>
+          <span [ngClass]='{"one-level":item.WATER_TYPE==="1","two-level":item.WATER_TYPE==="2",
+            "three-level":item.WATER_TYPE==="3","four-level":item.WATER_TYPE==="4",
+            "five-level":item.WATER_TYPE==="5","six-level":item.WATER_TYPE==="6"}' class="level-span">{{item.WATER_TYPE_JB}}类</span>
+          <span class="time">{{item.MTIME}}</span>
+        </p>
 
         <ion-grid class="long-grid">
           <ion-row>
@@ -30,7 +34,7 @@
             <ion-col>
               PH
             </ion-col>
-            <ion-col>
+            <ion-col size='3'>
               高锰酸钾
             </ion-col>
             <ion-col>
@@ -43,31 +47,28 @@
               总氮
             </ion-col>
           </ion-row>
-          <p>{{obj.poi}}</p>
-          <ion-row *ngFor='let item of obj["poi"],let i = index'>
+          <ion-row>
             <ion-col>
-              {{item.W21003}}mg/L
+              <!-- {{item.W21003}} -->12mg/L
             </ion-col>
             <ion-col>
-              {{item.W01001}}
+              <!-- {{item.W01001}} -->6
+            </ion-col>
+            <ion-col size='3'>
+              <!-- {{item.W01019}} -->12mg/L
             </ion-col>
             <ion-col>
-              {{item.W01019}}mg/L
+              <!-- {{item.W01009}} -->12mg/L
             </ion-col>
             <ion-col>
-              {{item.W01009}}mg/L
+              <!-- {{item.W21011}} -->12mg/L
             </ion-col>
             <ion-col>
-              {{item.W21011}}mg/L
-            </ion-col>
-            <ion-col>
-              {{item.W21001}}mg/L
+              <!-- {{item.W21001}} -->12mg/L
             </ion-col>
           </ion-row>
         </ion-grid>
-
+      </div>
     </div>
   </div>
-
-
 </ion-content>

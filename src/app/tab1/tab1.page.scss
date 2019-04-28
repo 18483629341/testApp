@@ -1,31 +1,33 @@
 
+$xGap:15px;
 $mainColor:#303030;
 $subColor:#666;
 .five-level ion-img {
   max-height: 35vh;
   overflow: hidden;
 }
+.card-li{
+  padding-top:10px;
+}
 .list-header{
-  color: $mainColor;
-  width:95%;
-  margin: 0 auto;
-  border-bottom: 1px solid lightgrey;
+  padding-left: $xGap;
+  padding-right: $xGap;
+  height:30px;
+  line-height: 30px;
   .title{
-    font-size: 20px;
+    font-size: 16px;
   }
   .level-span{
     margin-left: 10px;
-    padding:3px 6px;
+    padding:3px 15px;
     color:#fff;
     border-radius: 4px;
+    font-size: 12px;
   }
-  .time{
-    float: right;
-    color: #999;
-  }
+  
 
   .long-grid{
-    width:1000px;
+    
   }
 }
 
@@ -48,3 +50,25 @@ $subColor:#666;
   background-color: #fc0105;
 }
 
+.long-grid{
+  ion-row{
+    height:35px;
+    line-height:35px;
+    font-size: 12px;
+  }
+  ion-row+ion-row{
+    border-top:.55px solid #f1f1f1;
+  }
+  ion-col{
+    flex-wrap: nowrap;
+  }
+}
+ion-grid + ion-grid{
+  margin-top:15px;
+}
+
+.time{
+  float: right;
+  color: #9c9c9c;
+  font-size: 13px;
+}

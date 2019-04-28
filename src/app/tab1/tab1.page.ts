@@ -10,10 +10,10 @@ export class Tab1Page {
   public a = ' a ';
   public list = [
     {
-      ' RL_TYPE ': 'HL',
-      ' opi' : [
+      'RL_TYPE': 'HL',
+      'opi' : [
         {
-          ' W01019': 1.7,
+          'W01019': 1.7,
           'WATER_TYPE': '1',
           'WATER_TYPE_JB': 'I',
           'W01009': 8,

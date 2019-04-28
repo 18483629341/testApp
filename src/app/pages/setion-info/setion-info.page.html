@@ -1,9 +1,92 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>setion_info</ion-title>
+    <ion-title>北京门头沟沿河城</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <!-- 站点介绍 -->
 
+  <ion-list-header>
+    <ion-label>
+      <span class="title-icon icon1"></span>
+      <span class='list-title'>站点介绍</span>
+    </ion-label>
+  </ion-list-header>
+  <div class="section-content">
+    <p class="paragrap">
+      简介：北京，简称“京”，是中华人民共和国首都、直辖市、国家中心城市、超大城市，全国政治中心、文化中心、国际交往中心、科技创新中心，是世界著名古都和现代化国际城市，是中国共产党中央委员会、中华人民共和国中央人民政府和全国人民代表大会常务委员会的办公所在地。北京地处中国华北地区，中心位于东
+      <span class="Expand">展开</span>
+    </p>
+  </div>
+
+  <!-- 站点环境 -->
+
+  <ion-list-header>
+    <ion-label>
+      <span class="title-icon icon2"></span>
+      <span class='list-title'>站点环境</span>
+    </ion-label>
+  </ion-list-header>
+  <div class="section-content">
+    <ion-label>
+      <span class="circle"></span>
+      <span class='list-title'>流域表征图</span>
+    </ion-label>
+    <div class="section-con">
+      <img src="" alt="">
+    </div>
+
+    <ion-label>
+      <span class="circle"></span>
+      <span class='list-title'>流域表征图</span>
+    </ion-label>
+    <div class="section-con">
+      <div class="flex-block">
+        <div class="per-section"></div>
+        <div class="per-section"></div>
+        <div class="per-section"></div>
+      </div>
+    </div>
+
+    <ion-label>
+      <span class="circle"></span>
+      <span class='list-title'>断面柱</span>
+    </ion-label>
+    <div class="section-con">
+      <div class="flex-block">
+        <div class="per-section"></div>
+        <div class="per-section"></div>
+        <div class="per-section"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 水质数据 -->
+
+  <ion-list-header>
+    <ion-label>
+      <span class="title-icon icon1"></span>
+      <span class='list-title'>水质数据</span>
+      <span class="time"></span>
+    </ion-label>
+  </ion-list-header>
+  <ion-grid>
+    <ion-row>
+      <ion-col></ion-col>
+    </ion-row>
+  </ion-grid>
+ 
+  <!-- 水质变化情况 -->
+  <ion-list-header>
+      <ion-label>
+        <span class="title-icon icon1"></span>
+        <span class='list-title'>水质变化情况</span>
+      </ion-label>
+    </ion-list-header>
+    <div class="section-content">
+      <p>水质变化级别 <ion-icon name=""></ion-icon></p>
+      <!-- <canvas class='canvas' id="water-change"></canvas> -->
+      <div id="chart1" class="charts" [ngStyle]="{'width': screenWidth+ 'px'}"></div>
+    </div>
 </ion-content>
