@@ -1,0 +1,24 @@
+
+
+ion-title{
+    background: #0d89e9;
+    --color:#fff;
+    font-size:16px;
+}
+
+.list-header{
+    padding-left: 15px;;
+    height:30px;
+    line-height: 30px;
+}
+
+.list-header .circle{
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius:50%; 
+    position: relative;
+    top: 5px;
+    margin-right:15px;
+    background: #1689e6;
+}
