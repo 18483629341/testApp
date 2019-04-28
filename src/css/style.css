@@ -1,0 +1,50 @@
+@font-face {
+  font-family: 'ths-ico-custom';
+  src:  url('fonts/ths-ico-custom.eot?23avd1');
+  src:  url('fonts/ths-ico-custom.eot?23avd1#iefix') format('embedded-opentype'),
+    url('fonts/ths-ico-custom.ttf?23avd1') format('truetype'),
+    url('fonts/ths-ico-custom.woff?23avd1') format('woff'),
+    url('fonts/ths-ico-custom.svg?23avd1#ths-ico-custom') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="thsicon-"], [class*=" thsicon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'ths-ico-custom' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.thsicon-cloud:before {
+  content: "\e900";
+}
+.thsicon-cloud1:before {
+  content: "\e901";
+}
+.thsicon-home:before {
+  content: "\e902";
+}
+.thsicon-home1:before {
+  content: "\e903";
+}
+.thsicon-location:before {
+  content: "\e947";
+}
+.thsicon-location1:before {
+  content: "\e948";
+}
+.thsicon-rank:before {
+  content: "\e94b";
+}
+.thsicon-rank1:before {
+  content: "\e94c";
+}
