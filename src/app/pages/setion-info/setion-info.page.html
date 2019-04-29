@@ -1,5 +1,8 @@
-<ion-header>
-  <ion-toolbar>
+<ion-header mode='ios'>
+  <ion-toolbar mode='ios'>
+    <ion-buttons slot="start">
+      <ion-back-button text="" icon="ios-arrow-back" mode='ios'></ion-back-button>
+    </ion-buttons>
     <ion-title>北京门头沟沿河城</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,22 +12,23 @@
 
   <ion-list-header>
     <ion-label>
-      <span class="title-icon icon1"></span>
+      <img class="title-icon" src="assets/img/info_icon1.png" />
       <span class='list-title'>站点介绍</span>
     </ion-label>
   </ion-list-header>
   <div class="section-content">
     <p class="paragrap">
       简介：北京，简称“京”，是中华人民共和国首都、直辖市、国家中心城市、超大城市，全国政治中心、文化中心、国际交往中心、科技创新中心，是世界著名古都和现代化国际城市，是中国共产党中央委员会、中华人民共和国中央人民政府和全国人民代表大会常务委员会的办公所在地。北京地处中国华北地区，中心位于东
-      <span class="Expand">展开</span>
+
     </p>
+    <p class="expand">展开</p>
   </div>
 
   <!-- 站点环境 -->
 
   <ion-list-header>
     <ion-label>
-      <span class="title-icon icon2"></span>
+      <img class="title-icon" src="assets/img/info_icon2.png" />
       <span class='list-title'>站点环境</span>
     </ion-label>
   </ion-list-header>
@@ -34,18 +38,22 @@
       <span class='list-title'>流域表征图</span>
     </ion-label>
     <div class="section-con">
-      <img src="" alt="">
+      <img src="assets/img/river_basin.png" />
     </div>
 
     <ion-label>
       <span class="circle"></span>
-      <span class='list-title'>流域表征图</span>
+      <span class='list-title'>站房</span>
     </ion-label>
-    <div class="section-con">
-      <div class="flex-block">
-        <div class="per-section"></div>
-        <div class="per-section"></div>
-        <div class="per-section"></div>
+    <div class="section-con flex-block">
+      <div class="flex1">
+        <img src="assets/img/section.png" />
+      </div>
+      <div class="flex1">
+        <img src="assets/img/section.png" />
+      </div>
+      <div class="flex1">
+        <img src="assets/img/section.png" />
       </div>
     </div>
 
@@ -53,11 +61,15 @@
       <span class="circle"></span>
       <span class='list-title'>断面柱</span>
     </ion-label>
-    <div class="section-con">
-      <div class="flex-block">
-        <div class="per-section"></div>
-        <div class="per-section"></div>
-        <div class="per-section"></div>
+    <div class="section-con flex-block">
+      <div class="flex1">
+        <img src="assets/img/bar.png" />
+      </div>
+      <div class="flex1">
+        <img src="assets/img/bar.png" />
+      </div>
+      <div class="flex1">
+        <img src="assets/img/bar.png" />
       </div>
     </div>
   </div>
@@ -66,27 +78,39 @@
 
   <ion-list-header>
     <ion-label>
-      <span class="title-icon icon1"></span>
+      <img class="title-icon" src="assets/img/info_icon3.png" />
       <span class='list-title'>水质数据</span>
-      <span class="time"></span>
+      <span class="time">{{waterQuiData.date}}</span>
     </ion-label>
   </ion-list-header>
-  <ion-grid>
-    <ion-row>
-      <ion-col></ion-col>
-    </ion-row>
-  </ion-grid>
- 
+  <div class="section-content">
+    <ion-grid class="water-grid">
+      <ion-row>
+        <ion-col>时间</ion-col>
+        <ion-col>氨氮</ion-col>
+        <ion-col>PH</ion-col>
+        <ion-col>PO</ion-col>
+        <ion-col>总磷</ion-col>
+        <ion-col>水质</ion-col>
+      </ion-row>
+      <ion-row *ngFor='let item of waterQuiData.arr;let i=index'>
+          <ion-col *ngFor="let key of getKeys(item)"> {{ item[key] }}</ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
   <!-- 水质变化情况 -->
   <ion-list-header>
-      <ion-label>
-        <span class="title-icon icon1"></span>
-        <span class='list-title'>水质变化情况</span>
-      </ion-label>
-    </ion-list-header>
-    <div class="section-content">
-      <p>水质变化级别 <ion-icon name=""></ion-icon></p>
-      <!-- <canvas class='canvas' id="water-change"></canvas> -->
-      <div id="chart1" class="charts" [ngStyle]="{'width': screenWidth+ 'px'}"></div>
-    </div>
+    <ion-label>
+      <img class="title-icon" src="assets/img/info_icon2.png" />
+      <span class='list-title'>水质变化情况</span>
+    </ion-label>
+  </ion-list-header>
+  <div class="section-content">
+    <p>水质变化级别
+      <ion-icon src="assets/img/down.svg"></ion-icon>
+    </p>
+    <!-- <canvas class='canvas' id="water-change"></canvas> -->
+    <div id="chart1" class="charts" [ngStyle]="{'width': screenWidth}"></div>
+  </div>
 </ion-content>

@@ -7,187 +7,179 @@ import * as echarts from 'echarts';
   styleUrls: ['./setion-info.page.scss'],
 })
 export class SetionInfoPage implements OnInit {
-  public screenWidth: number; // 获取屏幕宽度
+  public screenWidth= window.innerWidth + 'px'; // 获取屏幕宽度
   public echartsAreaNameList = ['1', '2'];
-  public echartsAreaDataList = [ 4, 5];
-  public chartOption = {
-    title: {
-      text: '堆叠区域图'
-    },
-    tooltip: {
-      trigger: 'axis'
-    },
-    legend: {
-      data: ['邮件营销', '联盟广告', '视频广告', '直接访问', '搜索引擎']
-    },
-    toolbox: {
-      feature: {
-        saveAsImage: {}
-      }
-    },
-    grid: {
-      left: '3%',
-      right: '4%',
-      bottom: '3%',
-      containLabel: true
-    },
-    xAxis: [
+  public echartsAreaDataList = [4, 5];
+  public waterQuiData = {
+    date: '2018年4月8日',
+    arr: [
       {
-        type: 'category',
-        boundaryGap: false,
-        data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
-      }
-    ],
-    yAxis: [
-      {
-        type: 'value'
-      }
-    ],
-    series: [
-      {
-        name: '邮件营销',
-        type: 'line',
-        stack: '总量',
-        areaStyle: { normal: {} },
-        data: [120, 132, 101, 134, 90, 230, 210]
+        time: '00:00',
+        andan: 31,
+        PH: 34,
+        DO: 11,
+        p: 14,
+        water_level: 'Ⅰ'
       },
       {
-        name: '联盟广告',
-        type: 'line',
-        stack: '总量',
-        areaStyle: { normal: {} },
-        data: [220, 182, 191, 234, 290, 330, 310]
-      },
-      {
-        name: '视频广告',
-        type: 'line',
-        stack: '总量',
-        areaStyle: { normal: {} },
-        data: [150, 232, 201, 154, 190, 330, 410]
-      },
-      {
-        name: '直接访问',
-        type: 'line',
-        stack: '总量',
-        areaStyle: { normal: {} },
-        data: [320, 332, 301, 334, 390, 330, 320]
-      },
-      {
-        name: '搜索引擎',
-        type: 'line',
-        stack: '总量',
-        label: {
-          normal: {
-            show: true,
-            position: 'top'
-          }
-        },
-        areaStyle: { normal: {} },
-        data: [820, 932, 901, 934, 1290, 1330, 1320]
+        time: '02:00',
+        andan: 33,
+        PH: 24,
+        DO: 21,
+        p: 14,
+        water_level: 'Ⅱ'
       }
     ]
+  };
+  public waterAssData = {
+    xData: ['00:00', '02:00', '04:00', '06:00', '08:00', '10:00', '12:00', '14:00', '16:00', '18:00', '20:00', '22:00'],
+    arr: [1, 2, 3, 4, 5, 6, 4, 3, 3, 1, 6, 1]
   };
   constructor() { }
 
   ngOnInit() {
-    this.screenWidth = window.innerWidth;
-    this.getEcharts('chart1');
+    setTimeout(() => {
+      this.getEcharts('chart1');
+    }, 1000);
   }
-/**
+  /**
    * 渲染echarts图表
-   * @param charts 【需要渲染的echarts的id】
+   * @param charts 需要渲染的echarts的id
    */
   getEcharts(charts: string) {
     const ec = echarts as any;
     const container = document.getElementById(charts);
     const chart = ec.init(container);
-
-    chart.setOption({
+    chart.setOption( {
+      color: ['#76c75b'],
       tooltip: {
-        show: true,
-        trigger: 'axis',
-        axisPointer: {            // 坐标轴指示器，坐标轴触发有效
-          type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-        },
-        formatter: (params) => {
-          return params[0].axisValue + '：' + params[0].value;
-        },
+        show: false,
       },
-      dataZoom: [{
-        type: 'slider',
-        show: true,
-        realtime: true, // 拖动时，是否实时更新系列的视图
-        height: 16,
-        bottom: '10',
-        left: '20%',
-        right: '20%',
-        start: 50,
-        end: 100,
-        textStyle: { color: '#181818' }
-      },
-      {
-        type: 'inside',
-      }
-      ],
       grid: {
-        left: '5%',
-        right: '5%',
-        bottom: '14%',
-        top: '14%',
-        containLabel: true
+        top: 40,
+        left: '0%',
+        right: 33,
+        bottom: 20,
+        containLabel: true,
+        show: false
       },
       xAxis: {
         type: 'category',
-        data: this.echartsAreaNameList,
-        axisLabel: {
-          interval: 0,
-          rotate: 35,
-          textStyle: {
-            fontSize : 10
+        data: this.waterAssData.xData,
+        onZero: true,
+        axisLine: { //X轴线的设置
+          show: false,
+          lineStyle: {
+            color: "#324b75",
+            type: 'dashed',
+            align: 'right',
+            padding: [3, 4, 5, 10]
           }
         },
         axisTick: {
-          lineStyle: {
-            color: '#fff'
-          },
           show: false
         },
-        axisLine: {
-          lineStyle: {
-            color: '#181818'
+        axisLabel: {
+          show: true,
+          rotate: -45,
+          textStyle: {
+            color: '#c3d4ff',
+            fontSize: 14,
           }
-        }
+        },
+        boundaryGap: true
       },
       yAxis: {
-        show: true,
-        min: 0,
-        splitLine: {
+        type: 'value',
+        //name: this._obj.Yname,
+        nameLocation: 'end',
+        nameTextStyle: {
+          color: '#c3d4ff',
+          align: 'left',
+          padding: [0, 0, 5, 0],
+          fontSize: 14
+        },
+        axisLabel: {
+          show: true,
+          textStyle: {
+            color: '#c3d4ff',
+            fontSize: 13,
+    
+          },
+          formatter: function (y) {
+            var r = null;
+            switch (y) {
+              case 6:
+                r = '劣Ⅳ类'
+                break;
+              case 5:
+                r = 'Ⅴ类'
+                break;
+              case 4:
+                r = 'Ⅵ类'
+                break;
+              case 3:
+                r = 'Ⅲ类'
+                break;
+              case 2:
+                r = 'Ⅱ类'
+                break;
+              case 1:
+                r = 'Ⅰ类'
+                break;
+              default:
+                r = ' '
+            }
+            return r;
+          }
+        },
+        axisLine: { //Y轴线的设置
+          show: false,
+    
+        },
+        axisTick: {
           show: false
         },
-        axisLine: {
+        splitLine: { //Y轴线的设置
+          show: true,
           lineStyle: {
-            color: '#181818'
+            color: ["#324b75"],
+            type: 'dashed'
           }
-        }
+        },
+        max: 6,
+        min: 0,
+        boundaryGap: ['0%', '0%']
       },
-      series: [
-        {
-          name: '数量',
-          type: 'bar',
-          barWidth: '10',
-          data: this.echartsAreaDataList,
-          itemStyle: {
-            normal: {
-              color: '#4162fb',
-              barBorderRadius: [30, 30, 0, 0]
-            }
+      series: [{
+        data: this.waterAssData.arr,
+        barCategoryGap: '80%',
+        type: 'bar',
+        legendHoverLink: true,
+        itemStyle: {
+          normal: {
+            // color:new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+            //             offset: 0,
+            //             color: '#00b0ff'
+            //         }, {
+            //             offset: 0.8,
+            //             color: '#7052f4'
+            //         }], false),
+            barBorderRadius: [8,8,0,0]
           }
-        }
-      ]
+        },
+        progressive: 5000,
+      }]
     });
-
-
   }
-  
+
+  /**
+   * 获取对象所有属性，返回属性组成的数组
+   * @param item 对象
+   */
+  getKeys(item) {
+    // console.log(Object.keys(item));
+    return Object.keys(item);
+  }
 
 }

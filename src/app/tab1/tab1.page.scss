@@ -6,51 +6,37 @@ $subColor:#666;
   max-height: 35vh;
   overflow: hidden;
 }
+
 .card-li{
-  padding-top:10px;
+  margin-bottom: 10px;
 }
+
 .list-header{
+  padding-top:10px;
   padding-left: $xGap;
   padding-right: $xGap;
-  height:30px;
-  line-height: 30px;
+ 
+  background: #fff;
+  margin: 0;
   .title{
     font-size: 16px;
   }
   .level-span{
     margin-left: 10px;
-    padding:3px 15px;
+    padding: 0 15px;
+    height: 24px;
+    line-height: 24px;
     color:#fff;
     border-radius: 4px;
     font-size: 12px;
   }
-  
 
-  .long-grid{
-    
-  }
 }
 
-.one-level {
-  background-color: #4ea9ff;
-}
-.two-level {
-  background-color: #0067ff;
-}
-.three-level  {
-  background-color: #00ff00;
-}
-.four-level  {
-  background-color: #ffff00;
-}
-.five-level  {
-  background-color: #ffd700;
-}
-.six-level  {
-  background-color: #fc0105;
-}
+
 
 .long-grid{
+  background: #fff;
   ion-row{
     height:35px;
     line-height:35px;
